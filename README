@@ -1,0 +1,3 @@
+It uses:
+- conio.h and wincon.h in Windows
+- ncurses.h in Linux
