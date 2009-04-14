@@ -13,9 +13,17 @@
 
 #include "../console.h"
 
+#ifdef WIN32
+
+short color_attrs[CON_MAX_COLORS]; // - like ncurses color pairs
+
+#endif //WIN32
+
 void con_init()
 {
-    ;
+	CONSOLE_CURSOR_INFO ci = {1, FALSE};
+	HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+	int i =SetConsoleCursorInfo(hStdOut, &ci);
 }
 
 void con_deinit()
@@ -105,3 +113,20 @@ int con_getKey()
     else
         return ch;
 }
+
+int con_init_pair(short n, short fg, short bg)
+{
+	if (n < 0 || n > CON_MAX_COLORS)
+		return 0;
+	color_attrs[n] = fg | FOREGROUND_INTENSITY | (bg << 4);
+	return 1;
+}
+
+int con_set_color(short n)
+{
+	if (n < 0 || n > CON_MAX_COLORS)
+		return 0;
+	HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+	return SetConsoleTextAttribute(hStdOut, color_attrs[n]);
+}
+

@@ -12,6 +12,17 @@
 #define CON_KEY_ESCAPE      27
 #define CON_KEY_BACKSPACE   '\b'
 
+#define CON_COLOR_BLACK     0x0000
+#define CON_COLOR_BLUE      0x0001
+#define CON_COLOR_GREEN     0x0002
+#define CON_COLOR_RED       0x0004
+#define CON_COLOR_YELLOW    CON_COLOR_RED |CON_COLOR_GREEN
+#define CON_COLOR_MAGENTA   CON_COLOR_RED | CON_COLOR_BLUE
+#define CON_COLOR_CYAN      CON_COLOR_GREEN | CON_COLOR_BLUE
+#define CON_COLOR_WHITE     CON_COLOR_GREEN | CON_COLOR_BLUE | CON_COLOR_RED
+
+#define CON_MAX_COLORS		64
+
 #else
 #include <ncurses.h>
 
@@ -22,6 +33,18 @@
 #define CON_KEY_ESCAPE      27
 #define CON_KEY_DEL         KEY_DC
 #define CON_KEY_BACKSPACE   KEY_BACKSPACE
+
+#define CON_COLOR_BLACK     COLOR_BLACK
+#define CON_COLOR_GREEN     COLOR_GREEN
+#define CON_COLOR_YELLOW    COLOR_YELLOW
+#define CON_COLOR_BLUE      COLOR_BLUE
+#define CON_COLOR_RED       COLOR_RED
+#define CON_COLOR_MAGENTA   COLOR_MAGENTA
+#define CON_COLOR_CYAN      COLOR_CYAN
+#define CON_COLOR_WHITE     COLOR_WHITE
+
+#define CON_MAX_COLORS		COLOR_PAIRS // ncurses
+
 
 #endif
 
@@ -37,5 +60,8 @@ extern int      con_outTxt(const char *format, ...);
 
 extern int      con_keyPressed();
 extern int      con_getKey();
+
+extern int      con_init_pair(short n, short fg, short bg);
+extern int      con_set_color(short n);
 
 #endif

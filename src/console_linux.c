@@ -17,6 +17,9 @@ void con_init()
     cbreak();
     nodelay(stdscr, TRUE);
     keypad(stdscr, TRUE);
+    curs_set(0);
+    start_color();
+    attron(A_BOLD);
 }
 
 void con_deinit()
@@ -74,3 +77,14 @@ int con_getKey()
 {
     return getch();
 }
+
+int con_init_pair(short n, short fg, short bg)
+{
+    return init_pair(n, fg, bg);
+}
+
+int con_set_color(short n)
+{
+    return attron(COLOR_PAIR(n));
+}
+
