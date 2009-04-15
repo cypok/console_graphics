@@ -1,9 +1,3 @@
-// CONLIB.c : imlementation of console helper functions for Advanced Programming Workshop
-//
-// This is a part of the Message-Driven Enviroment C library.
-// Copyright (C) 1999 Denis V. Kosykh
-// All rights reserved.
-
 #include <stdio.h>
 #include <stdarg.h>
 #include <assert.h>
@@ -21,9 +15,9 @@ short color_attrs[CON_MAX_COLORS]; // - like ncurses color pairs
 
 void con_init()
 {
-	CONSOLE_CURSOR_INFO ci = {1, FALSE};
-	HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
-	int i =SetConsoleCursorInfo(hStdOut, &ci);
+    CONSOLE_CURSOR_INFO ci = {1, FALSE};
+    HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+    int i =SetConsoleCursorInfo(hStdOut, &ci);
 }
 
 void con_deinit()
@@ -71,7 +65,7 @@ int con_clearScr()
 {
     int mx, my;
 
-	if (con_getMaxXY(&mx, &my))
+    if (con_getMaxXY(&mx, &my))
     {
         COORD szBuf = {mx + 1, my + 1};
         COORD BufferCoord= {0, 0};
@@ -114,19 +108,19 @@ int con_getKey()
         return ch;
 }
 
-int con_init_pair(short n, short fg, short bg)
+int con_initPair(short n, short fg, short bg)
 {
-	if (n < 0 || n > CON_MAX_COLORS)
-		return 0;
-	color_attrs[n] = fg | FOREGROUND_INTENSITY | (bg << 4);
-	return 1;
+    if (n < 0 || n > CON_MAX_COLORS)
+        return 0;
+    color_attrs[n] = fg | FOREGROUND_INTENSITY | (bg << 4);
+    return 1;
 }
 
-int con_set_color(short n)
+int con_setColor(short n)
 {
-	if (n < 0 || n > CON_MAX_COLORS)
-		return 0;
-	HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
-	return SetConsoleTextAttribute(hStdOut, color_attrs[n]);
+    if (n < 0 || n > CON_MAX_COLORS)
+        return 0;
+    HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+    return SetConsoleTextAttribute(hStdOut, color_attrs[n]);
 }
 

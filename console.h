@@ -61,7 +61,8 @@ extern int      con_outTxt(const char *format, ...);
 extern int      con_keyPressed();
 extern int      con_getKey();
 
-extern int      con_init_pair(short n, short fg, short bg);
-extern int      con_set_color(short n);
+// about color pairs read help for ncurses
+extern int      con_initPair(short n, short fg, short bg);
+extern int      con_setColor(short n);
 
 #endif

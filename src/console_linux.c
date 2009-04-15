@@ -1,9 +1,3 @@
-// CONLIB.c : imlementation of console helper functions for Advanced Programming Workshop
-//
-// This is a part of the Message-Driven Enviroment C library.
-// Copyright (C) 1999 Denis V. Kosykh
-// All rights reserved.
-
 #include "../console.h"
 
 #include <stdarg.h>
@@ -78,12 +72,12 @@ int con_getKey()
     return getch();
 }
 
-int con_init_pair(short n, short fg, short bg)
+int con_initPair(short n, short fg, short bg)
 {
     return init_pair(n, fg, bg);
 }
 
-int con_set_color(short n)
+int con_setColor(short n)
 {
     return attron(COLOR_PAIR(n));
 }
