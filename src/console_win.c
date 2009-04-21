@@ -118,9 +118,10 @@ int con_initPair(short n, short fg, short bg)
 
 int con_setColor(short n)
 {
+    HANDLE hStdOut;
     if (n < 0 || n > CON_MAX_COLORS)
         return 0;
-    HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+    hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
     return SetConsoleTextAttribute(hStdOut, color_attrs[n]);
 }
 
