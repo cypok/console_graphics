@@ -15,9 +15,9 @@ short color_attrs[CON_MAX_COLORS]; // - like ncurses color pairs
 
 void con_init()
 {
-    CONSOLE_CURSOR_INFO ci = {1, FALSE};
-    HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
-    int i =SetConsoleCursorInfo(hStdOut, &ci);
+//    CONSOLE_CURSOR_INFO ci = {1, FALSE};
+//    HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+//    int i =SetConsoleCursorInfo(hStdOut, &ci);
 }
 
 void con_deinit()
