@@ -4,8 +4,9 @@
 
 #include <wtypes.h>
 #include <wincon.h>
+#include <locale.h>
 
-#include "../console.h"
+#include "console.h"
 
 #ifdef WIN32
 
@@ -18,6 +19,7 @@ void con_init()
 //    CONSOLE_CURSOR_INFO ci = {1, FALSE};
 //    HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
 //    int i =SetConsoleCursorInfo(hStdOut, &ci);
+	setlocale( LC_ALL, ".OCP" );
 }
 
 void con_deinit()
@@ -124,4 +126,3 @@ int con_setColor(short n)
     hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
     return SetConsoleTextAttribute(hStdOut, color_attrs[n]);
 }
-
