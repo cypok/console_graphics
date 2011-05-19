@@ -19,7 +19,7 @@ void con_init()
 //    CONSOLE_CURSOR_INFO ci = {1, FALSE};
 //    HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
 //    int i =SetConsoleCursorInfo(hStdOut, &ci);
-	setlocale( LC_ALL, ".OCP" );
+    setlocale( LC_ALL, ".OCP" );
 }
 
 void con_deinit()
@@ -72,11 +72,15 @@ int con_clearScr()
         COORD szBuf = {mx + 1, my + 1};
         COORD BufferCoord= {0, 0};
         SMALL_RECT srWriteRegion = {0, 0, mx, my};
+        int nResult;
 
         CHAR_INFO *lpBuffer = (CHAR_INFO *)calloc(szBuf.X * szBuf.Y, sizeof(CHAR_INFO));
 
         HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
-        return WriteConsoleOutput(hStdOut, lpBuffer, szBuf, BufferCoord, &srWriteRegion);
+        nResult = WriteConsoleOutput(hStdOut, lpBuffer, szBuf, BufferCoord, &srWriteRegion);
+        free(lpBuffer);
+
+        return nResult;
     }
     return 0; // error
 }
