@@ -21,7 +21,7 @@
 #define CON_COLOR_CYAN      CON_COLOR_GREEN | CON_COLOR_BLUE
 #define CON_COLOR_WHITE     CON_COLOR_GREEN | CON_COLOR_BLUE | CON_COLOR_RED
 
-#define CON_MAX_COLORS		64
+#define CON_MAX_COLORS      64
 
 #else
 #include <ncurses.h>
@@ -43,7 +43,7 @@
 #define CON_COLOR_CYAN      COLOR_CYAN
 #define CON_COLOR_WHITE     COLOR_WHITE
 
-#define CON_MAX_COLORS		COLOR_PAIRS // ncurses
+#define CON_MAX_COLORS      COLOR_PAIRS // ncurses
 
 
 #endif
