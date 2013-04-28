@@ -43,7 +43,7 @@
 #define CON_COLOR_CYAN      COLOR_CYAN
 #define CON_COLOR_WHITE     COLOR_WHITE
 
-#define CON_MAX_COLORS      COLOR_PAIRS // ncurses
+#define CON_MAX_COLORS      COLOR_PAIRS
 
 
 #endif
@@ -61,8 +61,14 @@ extern int      con_outTxt(const char *format, ...);
 extern int      con_keyPressed();
 extern int      con_getKey();
 
-// about color pairs read help for ncurses
+/*
+ * You can init "color pairs": tuple of foreground color and
+ * background color. This pairs can be set before any drawing
+ * which use corresponding colors.
+ */
+
 extern int      con_initPair(short n, short fg, short bg);
 extern int      con_setColor(short n);
 
 #endif
+

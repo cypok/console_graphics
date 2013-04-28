@@ -130,3 +130,4 @@ int con_setColor(short n)
     hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
     return SetConsoleTextAttribute(hStdOut, color_attrs[n]);
 }
+
