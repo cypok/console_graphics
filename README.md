@@ -21,6 +21,8 @@ it.
 There is an `example/example.c` which can be useful to understand using of this
 library.
 
+![screenshot](https://github.com/cypok/console_graphics/raw/master/example/screenshot.png)
+
 ### Feedback
 
 This library was inspired by Alexey Nikitin and developed together
