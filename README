@@ -1,5 +1,0 @@
-Library for working with console in Windows and Unix-based OS with ncurses support.
-
-It uses:
-- conio.h and wincon.h in Windows
-- ncurses.h in Unix-based
