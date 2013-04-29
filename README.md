@@ -13,10 +13,22 @@ Implementation uses:
 
 ### Using
 
-Just copy `console.h` and `console.c` to your project and use it.
+Just copy `console.h` and `console.c` to your project and use them:
 
-On Unix-based OS you should have
+    #include "console.h"
+
+That's all for Windows.
+
+On Unix-based OS you should also have
 [ncurses](http://www.gnu.org/software/ncurses/ncurses.html) library installed.
+
+For example, use apt-get on Linux:
+
+    apt-get install libncurses5-dev
+
+Or use your favourite package manager on your favourite OS.
+
+After this add `-lncurses` to gcc options of your project.
 
 ### Example
 
@@ -24,6 +36,12 @@ There is an `example.c` which can be useful to understand using of this
 library.
 
 ![screenshot](https://github.com/cypok/console_graphics/raw/master/screenshot.png)
+
+To build and run on Windows just compile all files together.
+
+On Unix-based OS it's easy too:
+
+    make && ./example
 
 ### Feedback
 
