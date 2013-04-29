@@ -1,5 +1,5 @@
 #include <assert.h>
-#include "../console.h"
+#include "console.h"
 
 #define TITLE_X 3
 #define TITLE_Y 1

@@ -8,20 +8,22 @@ This library can be used to create application with console UI. It supports:
 
 Implementation uses:
 
-* `conio.h` and `wincon.h` in Windows
-* `ncurses.h` in Unix-based
+* `conio.h` and `wincon.h` on Windows
+* `ncurses.h` on Unix-based OS
 
 ### Using
 
-Just copy `console.h` and `src/console_{win or unix}.c` to your project and use
-it.
+Just copy `console.h` and `console.c` to your project and use it.
+
+On Unix-based OS you should have
+[ncurses](http://www.gnu.org/software/ncurses/ncurses.html) library installed.
 
 ### Example
 
-There is an `example/example.c` which can be useful to understand using of this
+There is an `example.c` which can be useful to understand using of this
 library.
 
-![screenshot](https://github.com/cypok/console_graphics/raw/master/example/screenshot.png)
+![screenshot](https://github.com/cypok/console_graphics/raw/master/screenshot.png)
 
 ### Feedback
 
