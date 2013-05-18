@@ -14,15 +14,30 @@ short color_attrs[CON_MAX_COLORS]; // - like ncurses color pairs
 
 void con_init()
 {
-//    CONSOLE_CURSOR_INFO ci = {1, FALSE};
-//    HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
-//    int i =SetConsoleCursorInfo(hStdOut, &ci);
     setlocale( LC_ALL, ".OCP" );
+    con_showCursor();
 }
 
 void con_deinit()
 {
     ;
+}
+
+#define CONSOLE_CURSOR_SIZE 25
+static void con_setCursor(int show) {
+    CONSOLE_CURSOR_INFO ci = {CONSOLE_CURSOR_SIZE, show};
+    HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleCursorInfo(hStdOut, &ci);
+}
+
+void con_showCursor()
+{
+    con_setCursor(TRUE);
+}
+
+void con_hideCursor()
+{
+    con_setCursor(FALSE);
 }
 
 int con_gotoXY(int x, int y)
@@ -140,14 +155,24 @@ void con_init()
     cbreak();
     nodelay(stdscr, TRUE);
     keypad(stdscr, TRUE);
-    curs_set(0);
     start_color();
     attron(A_BOLD);
+    con_showCursor();
 }
 
 void con_deinit()
 {
     endwin();
+}
+
+void con_showCursor()
+{
+    curs_set(1);
+}
+
+void con_hideCursor()
+{
+    curs_set(0);
 }
 
 int con_gotoXY(int x, int y)

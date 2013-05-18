@@ -64,6 +64,9 @@
 extern void     con_init();
 extern void     con_deinit();
 
+extern void     con_showCursor();
+extern void     con_hideCursor();
+
 extern int      con_gotoXY(int x, int y);
 extern int      con_getXY(int *px, int *py);
 extern int      con_getMaxXY(int *px, int *py);

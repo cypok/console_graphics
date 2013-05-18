@@ -107,6 +107,7 @@ int main() {
     int max_x, max_y;
 
     con_init();
+    con_hideCursor();
 
     init_colors();
 
