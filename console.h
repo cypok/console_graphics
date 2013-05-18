@@ -8,9 +8,15 @@
 #define CON_KEY_LEFT        -75
 #define CON_KEY_RIGHT       -77
 #define CON_KEY_DOWN        -80
-#define CON_KEY_DEL         -83
 #define CON_KEY_ESCAPE      27
+#define CON_KEY_INSERT      -82
+#define CON_KEY_DEL         -83
 #define CON_KEY_BACKSPACE   '\b'
+#define CON_KEY_ENTER       '\r'
+#define CON_KEY_HOME        -71
+#define CON_KEY_END         -79
+#define CON_KEY_PAGEUP      -73
+#define CON_KEY_PAGEDOWN    -81
 
 #define CON_COLOR_BLACK     0x0000
 #define CON_COLOR_BLUE      0x0001
@@ -31,8 +37,15 @@
 #define CON_KEY_LEFT        KEY_LEFT
 #define CON_KEY_RIGHT       KEY_RIGHT
 #define CON_KEY_ESCAPE      27
+#define CON_KEY_INSERT      KEY_IC
 #define CON_KEY_DEL         KEY_DC
-#define CON_KEY_BACKSPACE   KEY_BACKSPACE
+// there are some problems with backspace + ncurses
+#define CON_KEY_BACKSPACE   127
+#define CON_KEY_ENTER       '\n'
+#define CON_KEY_HOME        KEY_HOME
+#define CON_KEY_END         KEY_END
+#define CON_KEY_PAGEUP      KEY_PPAGE
+#define CON_KEY_PAGEDOWN    KEY_NPAGE
 
 #define CON_COLOR_BLACK     COLOR_BLACK
 #define CON_COLOR_GREEN     COLOR_GREEN
