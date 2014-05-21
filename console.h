@@ -1,6 +1,10 @@
 #ifndef _CONSOLE_H_
 #define _CONSOLE_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #ifdef WIN32
 #include <conio.h>
 
@@ -85,6 +89,10 @@ extern int      con_getKey();
 
 extern int      con_initPair(short n, short fg, short bg);
 extern int      con_setColor(short n);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
 
