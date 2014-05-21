@@ -32,6 +32,7 @@ static void init_colors() {
 }
 
 static void initial_draw() {
+    con_clearScr();
     con_gotoXY(TITLE_X, TITLE_Y);
     con_outTxt("Use arrows to move point, use Esc to exit.");
 
@@ -130,6 +131,7 @@ int main() {
         }
     }
 
+    con_clearScr();
     con_deinit();
     return 0;
 }
