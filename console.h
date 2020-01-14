@@ -5,7 +5,7 @@
 extern "C" {
 #endif
 
-#ifdef WIN32
+#ifdef _WIN32
 #include <conio.h>
 
 #define CON_KEY_UP          -72
