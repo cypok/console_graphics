@@ -1,6 +1,6 @@
 #include "console.h"
 
-#ifdef WIN32
+#ifdef _WIN32
 
 #include <stdarg.h>
 #include <stdio.h>
